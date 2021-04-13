@@ -785,7 +785,7 @@ stimulus_width: 720,
 
 	var full_block_pre = {
 		timeline: [test_block_pre, test_frame_int_pre],
-		repetitions: 10
+		repetitions: 500
 	}
 		
 	var FirstInstructions_block = {
