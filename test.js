@@ -492,7 +492,7 @@ stimulus_width: 720,
 		Penalty = 0
 		PointBonus = 1
 		SNR = 'Mean1SD7Scale4'
-		chosenSNRArray = 'Mean1SD7Scale4
+		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = -1
 	}
 }	
