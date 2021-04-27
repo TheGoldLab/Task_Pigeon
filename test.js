@@ -44,7 +44,9 @@ var pavlovia_init = {
  return '<div class="container" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-weight:normal;font-family:Arial;font-size:40px">' + message + '<div>'
     }
    
-   
+   function clamp(val, min, max) {
+    return val > max ? max : val < min ? min : val;
+}
    
     Mean10SD70Data = $ .get(`GeneratedStim/Mean10SD70.csv`, function(){
  Mean10SD70Actual = Papa.parse(Mean10SD70Data.responseText, {
