@@ -1,0 +1,4 @@
+"trial_type","trial_index","time_elapsed","internal_node_id","Direction","CorrectChoice","UpperChoiceThreshold","LowerChoiceThreshold","ChosenSNRArray","BlockNumber","PointTotal","SeedPenalty","StepPayToPlay","Steps","rt","url","responses","question_order"
+"pavlovia","0","4","0.0-0.0","38","No Choice","200","400","Mean1SD7Scale4","1","0","0","0","200","","","",""
+"external-html","1","4627","0.0-1.0-0.0","38","No Choice","200","400","Mean1SD7Scale4","1","0","0","0","200","4530","consent.html","",""
+"survey-multi-choice","2","212307","0.0-1.0-1.0","38","No Choice","200","400","Mean1SD7Scale4","1","0","0","0","200","207690","","{""Q0"":""Do Not Wish To Say"",""Q1"":""Do Not Wish to Respond""}","[0,1]"
