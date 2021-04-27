@@ -22,13 +22,13 @@ var script_picker = Math.floor(Math.random() * 998) + 1
 var ScreenWidth = window.innerWidth
 var SpaceBarMessage = 'Press Spacebar to abort trial'
 var SNR_Picker = 1
-	var SNR_Array = ['Mean10SD70','Mean7half','Mean10','Mean15', 'Mean10SD70'];
+	var SNR_Array = ['Mean1SD7Scale4','Mean7half','Mean10','Mean15', 'Mean10SD70'];
 	var shuffledSNRArray = jsPsych.randomization.shuffle(SNR_Array);
-var SNR = 'Mean10SD70'
+var SNR = 'Mean1SD7Scale4'
 var buttonappear = false
 var instruction_picker = 1
 var BottomBarMessage = 'No Response'
-var chosenSNRArray = 'Mean15'
+var chosenSNRArray = 'Mean1SD7Scale4'
 var PayToPlay = 0
 
 var BlockNumber = 1
@@ -48,8 +48,8 @@ var pavlovia_init = {
     return val > max ? max : val < min ? min : val;
 }
    
-    Mean10SD70Data = $ .get(`GeneratedStim/Mean10SD70.csv`, function(){
- Mean10SD70Actual = Papa.parse(Mean10SD70Data.responseText, {
+    Mean1SD7Scale4Data = $ .get(`GeneratedStim/Mean1SD7Scale4.csv`, function(){
+ Mean1SD7Scale4Actual = Papa.parse(Mean1SD7Scale4Data.responseText, {
      dynamicTyping: true
  })
     }) 
@@ -170,8 +170,8 @@ var pavlovia_init = {
 		  trial.stimulus = rw
 	      trial.trial_duration = trial_time
 		 switch(SNR){
-		 case 'Mean10SD70': 
-			TransformedDataS1 = Mean10SD70Actual.data[script_picker]
+		 case 'Mean1SD7Scale4': 
+			TransformedDataS1 = Mean1SD7Scale4Actual.data[script_picker]
 			 break;
 		 case 'Mean05':
 			TransformedDataS1 = Mean05Actual.data[script_picker]
@@ -267,8 +267,8 @@ var pavlovia_init = {
 	        trial.trial_duration = trial_time
 	
 		 switch(SNR){
-		 case 'Mean10SD70': 
-			TransformedDataS1 = Mean10SD70Actual.data[script_picker]
+		 case 'Mean1SD7Scale4': 
+			TransformedDataS1 = Mean1SD7Scale4Actual.data[script_picker]
 			 break;
 		 case 'Mean05':
 			TransformedDataS1 = Mean05Actual.data[script_picker]
@@ -491,8 +491,8 @@ stimulus_width: 720,
 		PointTotal = 0
 		Penalty = 0
 		PointBonus = 1
-		SNR = 'Mean10SD70'
-		chosenSNRArray = 'Mean10SD70'
+		SNR = 'Mean1SD7Scale4'
+		chosenSNRArray = 'Mean1SD7Scale4
 		BlockNumber = -1
 	}
 }	
@@ -512,8 +512,8 @@ stimulus_width: 720,
 		PointTotal = 0
 		Penalty = 0
 		PointBonus = 1
-		SNR = 'Mean10SD70'
-		chosenSNRArray = 'Mean10SD70'
+		SNR = 'Mean1SD7Scale4'
+		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = 0
 	}
 }	
@@ -533,8 +533,8 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -1
 			PointBonus = 2
-			SNR = 'Mean10SD70'
-			chosenSNRArray = 'Mean10SD70'
+			SNR = 'Mean1SD7Scale4'
+			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 1
 		}
 	}
@@ -554,8 +554,8 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -1
 			PointBonus = 2
-			SNR = 'Mean10SD70'
-			chosenSNRArray = 'Mean10SD70'
+			SNR = 'Mean1SD7Scale4'
+			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 2
 		}
 	}
@@ -575,8 +575,8 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -4
 			PointBonus = 7
-			SNR = 'Mean10SD70'
-			chosenSNRArray = 'Mean10SD70'
+			SNR = 'Mean1SD7Scale4'
+			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 3
 		}
 	}
@@ -596,8 +596,8 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -4
 			PointBonus = 7
-			SNR = 'Mean10SD70'
-			chosenSNRArray = 'Mean10SD70'
+			SNR = 'Mean1SD7Scale4'
+			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 4
 		}
 	}
@@ -828,7 +828,7 @@ stimulus_width: 720,
 
 			
 		},
- preload: [Mean10SD70Data, Mean05Data,Mean7halfData,Mean10Data,Mean15Data],
+ preload: [Mean1SD7Scale4Data, Mean05Data,Mean7halfData,Mean10Data,Mean15Data],
 		default_iti: 0,
 		    	  on_finish: function() {	          document.body.innerHTML = '<p> Please wait. Data is being uploaded. Please do not close the browser window or your data may be lost. You will be redirected back to Prolific in 3 seconds.</p>'
 	          setTimeout(function () { location.href = prolific_href }, 3000) } 
