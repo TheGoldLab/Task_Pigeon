@@ -1,0 +1,2 @@
+"trial_type","trial_index","time_elapsed","internal_node_id","Direction","CorrectChoice","UpperChoiceThreshold","LowerChoiceThreshold","ChosenSNRArray","BlockNumber","PointTotal","SeedPenalty","StepPayToPlay","Steps"
+"pavlovia","0","4","0.0-0.0","38","No Choice","200","400","Mean1SD7Scale4","1","0","0","0","200"
