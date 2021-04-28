@@ -48,6 +48,10 @@
 	color: orange;
 }
 
+.nochoice {
+	color: black;
+}
+
 p {
   font-size: 25px;
     margin: 1px
