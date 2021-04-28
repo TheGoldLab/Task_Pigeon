@@ -112,7 +112,7 @@ var ScreenWidth = window.innerWidth
 
 
 var ctx = document.getElementById('jspsych-canvas-keyboard-response-stimulus')
-var canvas = new fabric.StaticCanvas('jspsych-canvas-keyboard-response-stimulus', { objectCaching: false, width: trial.stimulus_width, height: 600});
+var canvas = new fabric.StaticCanvas('jspsych-canvas-keyboard-response-stimulus', { objectCaching: false, width: trial.stimulus_width, height: 600, border: 20});
  
       
 mid_line = new fabric.Line([0,300,trial.stimulus_width,300],{
@@ -141,7 +141,6 @@ var ball_size = 8
   
   width_con = (trial.stimulus_width) * (.90 / 30)
   
-Circle0 = new fabric.Circle({objectCaching: false, originY: 'center', radius: ball_size, fill: '#f55', opacity: 1,top: 300, left: 20})  
 Circle1 = new fabric.Circle({objectCaching: false, originY: 'center', radius: ball_size, fill: '#f55', opacity: 1,top: clamp(trial.data[rw],0,600), left: width_con * rw })
 Circle2 = new fabric.Circle({objectCaching: false, originY: 'center', radius: ball_size, fill: '#f55', opacity: .9,top:  clamp(trial.data[rw - 1],0,600), left: width_con * (rw - 1) })
 Circle3 = new fabric.Circle({objectCaching: false, originY: 'center', radius: ball_size, fill: '#f55', opacity: .9,top: clamp(trial.data[rw - 2],0,600), left: width_con * (rw - 2) })
@@ -173,7 +172,6 @@ Circle28 = new fabric.Circle({objectCaching: false, originY: 'center', radius: b
 Circle29 = new fabric.Circle({objectCaching: false, originY: 'center', radius: ball_size, fill: '#f55', opacity: .1,top: clamp(trial.data[rw - 28],0,600), left: width_con * (rw - 28) })
 Circle30 = new fabric.Circle({objectCaching: false, originY: 'center', radius: ball_size, fill: '#f55', opacity: .1,top: clamp(trial.data[rw - 29],0,600), left: width_con * (rw - 29) }) 
   
-canvas.add(Circle0)
 canvas.add(Circle1)	  
 canvas.add(Circle2)
 canvas.add(Circle3)
