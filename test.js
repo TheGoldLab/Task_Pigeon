@@ -126,8 +126,7 @@ var pavlovia_init = {
  type: 'image-keyboard-response',
  stimulus: '',
  choices: ['spacebar'],
- stimulus_height: 405,
- stimulus_width: 720,
+ stimulus_width: 1000,
 		on_start: function(trial){
 			 trial.stimulus = 'instructions/Slide' + instruction_picker + '.png'
 			pre_trials = 'stop'
@@ -205,6 +204,7 @@ var pavlovia_init = {
  on_finish: function(trial){
 	 var lasttimelinedata = jsPsych.currentTrial();
   ChoiceDirection = 'No Choice'
+	 CDcolor = 'No Choice'
 	 switch(true) {
      case (AbsoluteFrames >0):		 
   if(trial.key_press === 38) {
@@ -367,7 +367,7 @@ var pavlovia_init = {
 	   		 break;
 	   	     case 'red': BottomBarMessage = `<em class = "incorrect">${ChoiceDirection}</em>`
              break;
-	 case 'No Choice': BottomBarMessage = '<em>No Choice Made!</em>'
+	 case 'No Choice': BottomBarMessage = '<em> No Response</em>'
 	 }
 			
      trial.stimulus_width = window.innerWidth
@@ -833,6 +833,8 @@ stimulus_width: 720,
 		    	  on_finish: function() {	          document.body.innerHTML = '<p> Please wait. Data is being uploaded. Please do not close the browser window or your data may be lost. You will be redirected back to Prolific in 3 seconds.</p>'
 	          setTimeout(function () { location.href = prolific_href }, 3000) } 
 	})
+
+
 
 
 
