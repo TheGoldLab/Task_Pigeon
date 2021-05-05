@@ -799,7 +799,7 @@ stimulus_width: 720,
 		
 	var FirstInstructions_block = {
 		timeline: [FirstInstructions],
-		repetitions: 20
+		repetitions: 21
 	}
 
 	
