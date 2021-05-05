@@ -82,7 +82,7 @@ var ScreenWidth = window.innerWidth
 	  }
 	  
 	  html += '<canvas id="jspsych-canvas-keyboard-response-stimulus">' + trial.stimulus + '</canvas>';
-      html += `Coins: ${PointTotal} | Penalty: ${Penalty}| Steps Remaining: ${AbsoluteFrames} | Bet: ${BottomBarMessage}`
+      html += `Coins: ${PointTotal} | Reward: ${PointBonusShow} | Penalty: ${Penalty}| Steps Remaining: ${AbsoluteFrames} | Bet: ${BottomBarMessage}`
 
 	  
 	  switch(pre_trials){
