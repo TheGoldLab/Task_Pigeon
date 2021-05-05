@@ -4,6 +4,7 @@ ball_array = []
 var ChoiceDirection = ''
 var BallVisible = true
 var PointBonus = 1
+var PointBonusShow = 1
 var Penalty = 0
 var PointTotal = 0
 var UpperChoiceThreshold = 200
@@ -491,6 +492,7 @@ stimulus_width: 720,
 		PointTotal = 0
 		Penalty = 0
 		PointBonus = 1
+		PointBonusShow = 1
 		SNR = 'Mean1SD7Scale4'
 		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = -1
@@ -512,6 +514,7 @@ stimulus_width: 720,
 		PointTotal = 0
 		Penalty = 0
 		PointBonus = 1
+		PointBonusShow = 1
 		SNR = 'Mean1SD7Scale4'
 		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = 0
@@ -533,6 +536,7 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -1
 			PointBonus = 2
+			PointBonusShow = 1
 			SNR = 'Mean1SD7Scale4'
 			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 1
@@ -554,6 +558,7 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -1
 			PointBonus = 2
+			PointBonusShow = 1
 			SNR = 'Mean1SD7Scale4'
 			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 2
@@ -575,6 +580,7 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -4
 			PointBonus = 7
+			PointBonusShow = 3
 			SNR = 'Mean1SD7Scale4'
 			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 3
@@ -596,6 +602,7 @@ stimulus_width: 720,
 			PointTotal = 0
 			Penalty = -4
 			PointBonus = 7
+			PointBonusShow = 3
 			SNR = 'Mean1SD7Scale4'
 			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 4
