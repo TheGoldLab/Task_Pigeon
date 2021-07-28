@@ -818,7 +818,7 @@ stimulus_width: 720,
         
             jsPsych.init({
   //timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, training_block_pre, training_block, Instructions,Instructions, BlockBuilder_1, test_frame_int_pre, full_block_pre, BlockBuilder_2, Instructions, full_block, BlockBuilder_3,Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_4, pavlovia_finish],
-  timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, BlockBuilder_B, test_frame_int_pre, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre, pavlovia_finish], 
+  timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre, pavlovia_finish], 
 				 
 
 		on_data_update: function(data){
