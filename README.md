@@ -10,6 +10,8 @@ to
   
   to run outside pavlovia.
   
+  If you run into an issue with the CORS settings when running it locally, use this link to be able to run the task on your machine: https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server
+  
   Change the timing of the predefined bounds set  to get the balls to appear almost instantly instead of having to wait the half second for them to appear. You'll need to stop it from moving on directly to the bounds adjustment screen though. 
   
   Integration with prolific: https://www.jspsych.org/overview/prolific/
