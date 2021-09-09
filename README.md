@@ -1,6 +1,6 @@
 # PigeonTask
 
-This is a 4 block versino of the task. Online choice-Predefined-Online Choice-Predefined. The BlockBuilder code blocks have all the important variables that get changed between each test block.
+This is a 4 block version of the task. Online choice-Predefined-Online Choice-Predefined. The BlockBuilder code blocks have all the important variables that get changed between each test block.
 
 Change   timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre, pavlovia_finish], 
 
