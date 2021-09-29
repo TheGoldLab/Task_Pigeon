@@ -1,5 +1,5 @@
 var timeline = []
-rw = 0	
+rw = 0
 ball_array = []
 var ChoiceDirection = ''
 var BallVisible = true
@@ -16,7 +16,7 @@ var hmm = 0
 var CDcolor = 'No Choice'
 var timeleft = 10
 var pre_trials = 'stop'
-//var scale_factor = prompt('Scale Factor (recommended: 15-20)')		
+//var scale_factor = prompt('Scale Factor (recommended: 15-20)')
 //var mean_picker = prompt('0397,1218,2133,3277,5201')
 var scale_factor = 15
 var script_picker = Math.floor(Math.random() * 998) + 1
@@ -39,27 +39,27 @@ var pavlovia_init = {
 	    type: "pavlovia",
 	    command: "init"
 	};
- 
-		
+
+
     function centered_message(message) {
  return '<div class="container" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-weight:normal;font-family:Arial;font-size:40px">' + message + '<div>'
     }
-   
+
    function clamp(val, min, max) {
     return val > max ? max : val < min ? min : val;
 }
-   
+
     Mean1SD7Scale4Data = $ .get(`GeneratedStim/Mean1SD7Scale4.csv`, function(){
  Mean1SD7Scale4Actual = Papa.parse(Mean1SD7Scale4Data.responseText, {
      dynamicTyping: true
  })
-    }) 
-	
+    })
+
     Mean05Data = $ .get(`GeneratedStim/Mean05.csv`, function(){
  Mean05Actual = Papa.parse(Mean05Data.responseText, {
      dynamicTyping: true
  })
-    }) 
+    })
 	   Mean7halfData = $ .get(`GeneratedStim/Mean7half.csv`, function(){
  Mean7halfActual = Papa.parse(Mean7halfData.responseText, {
      dynamicTyping: true
@@ -75,7 +75,7 @@ var pavlovia_init = {
      dynamicTyping: true
  })
     })
-	
+
     function myFunctionWiden(){
     	UpperChoiceThreshold += -20
 		LowerChoiceThreshold += 20
@@ -96,9 +96,9 @@ var pavlovia_init = {
 	};
 
     var consent = {
-       type:'external-html', 
-       url: "consent.html", 
-       cont_btn: "start", 
+       type:'external-html',
+       url: "consent.html",
+       cont_btn: "start",
        check_fn: check_consent
    }
 
@@ -106,7 +106,7 @@ var pavlovia_init = {
    var Ethnicity_options = ["American Indian or Alaskan Native","Asian","Black or African American","Native Hawaiian or Pacific Islander","White","Hispanic or Latino","Other","Do Not Wish to Respond"]
    var demographics = {
    	type: "survey-multi-choice",
-   	questions: [{prompt:"Gender Orientation:", options: Gender_options, required:true,}, 
+   	questions: [{prompt:"Gender Orientation:", options: Gender_options, required:true,},
    	{prompt:"Ethnicity:", options: Ethnicity_options, required:true}],
    	   };
    var age = {
@@ -122,7 +122,7 @@ var pavlovia_init = {
    	   };
 
 
-	
+
     var FirstInstructions = {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -137,8 +137,8 @@ var pavlovia_init = {
    	     on_finish: function(trial){
    	     instruction_picker = instruction_picker + 1
    	 }
-    };	
-	
+    };
+
 	var Instructions = {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -152,7 +152,7 @@ var pavlovia_init = {
    	     instruction_picker = instruction_picker + 1
    	 }
 	}
-	
+
     var online_frame = {
  type: 'canvas-keyboard-response',
 		trial_duration: [],
@@ -170,13 +170,13 @@ var pavlovia_init = {
 		  trial.stimulus = rw
 	      trial.trial_duration = trial_time
 		 switch(SNR){
-		 case 'Mean1SD7Scale4': 
+		 case 'Mean1SD7Scale4':
 			TransformedDataS1 = Mean1SD7Scale4Actual.data[script_picker]
 			 break;
 		 case 'Mean05':
 			TransformedDataS1 = Mean05Actual.data[script_picker]
 			 break;
-		 case 'mixed':	        
+		 case 'mixed':
 			 chosenSNRArray = shuffledSNRArray[SNR_Picker]
 		 	switch(chosenSNRArray){
 		 	 case 'Mean05': TransformedDataS1 = Mean05Actual.data[script_picker]
@@ -194,12 +194,12 @@ var pavlovia_init = {
 		 	   break;
 	 		  case 40: TransformedDataS2 = TransformedDataS1.map(x=> 300 + x)
 		 	  break;
-	                          }	 
-							  trial.data = TransformedDataS2	
+	                          }
+							  trial.data = TransformedDataS2
 							  break;
-							  
+
 						  case (AbsoluteFrames <= 0):
-							  trial.data = 0 
+							  trial.data = 0
  }
 		},
  on_finish: function(trial){
@@ -207,7 +207,7 @@ var pavlovia_init = {
   ChoiceDirection = 'No Choice'
 	 CDcolor = 'No Choice'
 	 switch(true) {
-     case (AbsoluteFrames >0):		 
+     case (AbsoluteFrames >0):
   if(trial.key_press === 38) {
   	ChoiceDirection = 'Above'
 	  BallVisible = false
@@ -215,13 +215,13 @@ var pavlovia_init = {
 	  CDcolor = 'red'
 	  PointTotal += Penalty
 	  jsPsych.endCurrentTimeline();
-	  
-	  
+
+
 	  if(trial.key_press === 38 && direction === 38) {
 		  PointTotal += PointBonus
 		  CDcolor = 'blue'
 		  jsPsych.endCurrentTimeline();
-		  
+
 	  }
   }
   if(trial.key_press === 40) {
@@ -231,13 +231,13 @@ var pavlovia_init = {
 	  CDcolor = 'red'
 	  PointTotal += Penalty
 	  jsPsych.endCurrentTimeline();
-	  
-	  
+
+
   if(trial.key_press === 40 && direction === 40) {
 	  PointTotal += PointBonus
 	  CDcolor = 'blue'
 	  jsPsych.endCurrentTimeline();
-	  
+
   }
 
   }
@@ -250,7 +250,7 @@ var pavlovia_init = {
   }
 
     }
-	
+
     var Pre_frame = {
  type: 'canvas-keyboard-response',
  trial_duration: [],
@@ -266,15 +266,15 @@ var pavlovia_init = {
 		 var lasttimelinedata = jsPsych.currentTrial();
 		  trial.stimulus = rw
 	        trial.trial_duration = trial_time
-	
+
 		 switch(SNR){
-		 case 'Mean1SD7Scale4': 
+		 case 'Mean1SD7Scale4':
 			TransformedDataS1 = Mean1SD7Scale4Actual.data[script_picker]
 			 break;
 		 case 'Mean05':
 			TransformedDataS1 = Mean05Actual.data[script_picker]
 			 break;
-		 case 'mixed':	        
+		 case 'mixed':
 			 chosenSNRArray = shuffledSNRArray[SNR_Picker]
 		 	switch(chosenSNRArray){
 		 	 case 'Mean05': TransformedDataS1 = Mean05Actual.data[script_picker]
@@ -292,19 +292,19 @@ var pavlovia_init = {
 		 	   break;
 	 		  case 40: TransformedDataS2 = TransformedDataS1.map(x=> 300 + x)
 		 	  break;
-	                          }	 
-							  trial.data = TransformedDataS2	
+	                          }
+							  trial.data = TransformedDataS2
 							  break;
-							  
+
 						  case (AbsoluteFrames <= 0):
-							  trial.data = 0 
+							  trial.data = 0
  }
 		},
  on_finish: function(trial){
 	 var lasttimelinedata = jsPsych.currentTrial();
 	 switch(true) {
-     case (AbsoluteFrames >0):	
-		 	 
+     case (AbsoluteFrames >0):
+
   ChoiceDirection = 'No Choice'
 	     if(trial.key_press === 32) {
 	     	ChoiceDirection = ''
@@ -313,7 +313,7 @@ var pavlovia_init = {
 	   	  CDcolor = 'No Choice'
 	   	  jsPsych.endCurrentTimeline();
 	  }
-		   
+
 	  if (TransformedDataS2[rw] < UpperChoiceThreshold) {
 	  	ChoiceDirection = 'Above'
 		  BallVisible = false
@@ -321,13 +321,13 @@ var pavlovia_init = {
 		  CDcolor = 'red'
 	      PointTotal += Penalty
 		  jsPsych.endCurrentTimeline();
-	  
+
 	  if (TransformedDataS2[rw] < UpperChoiceThreshold && direction === 38) {
 		  PointTotal += PointBonus
 		  CDcolor = 'blue'
 		  jsPsych.endCurrentTimeline();
-	  }} 
-	  
+	  }}
+
 	  if (TransformedDataS2[rw] > LowerChoiceThreshold) {
 	  	ChoiceDirection = 'Below'
 		  BallVisible = false
@@ -335,16 +335,16 @@ var pavlovia_init = {
 		  CDcolor = 'red'
 	      PointTotal += Penalty
 		  jsPsych.endCurrentTimeline();
-	  
+
 	  if (TransformedDataS2[rw] > LowerChoiceThreshold && direction === 40) {
 		  PointTotal += PointBonus
 		  CDcolor = 'blue'
 		  jsPsych.endCurrentTimeline();
-		  }} 
- 
-	 
-  
-  
+		  }}
+
+
+
+
   AbsoluteFrames += -1
   rw += 1
 	  break;
@@ -370,7 +370,7 @@ var pavlovia_init = {
              break;
 	 case 'No Choice': BottomBarMessage = '<em> No Response</em>'
 	 }
-			
+
      trial.stimulus_width = window.innerWidth
 			trial.data = 0
 			if(AbsoluteFrames <=0){
@@ -380,7 +380,7 @@ var pavlovia_init = {
 		},
 		on_finish: function(trial){
      SpaceBarMessage = 'Use the up or down arrows on the keyboard to make a choice'
-			
+
 			rw = 0
 			script_picker = Math.floor(Math.random() * 998) + 1
 			BallVisible = true
@@ -391,11 +391,11 @@ var pavlovia_init = {
 			timeleft = 10
             SNR_Picker = Math.floor(Math.random() * 4)
 			AbsoluteFrames += PayToPlay
-			
-			
+
+
 		}
 	}
-	
+
     var test_frame_int_pre = {
     type: 'canvas-keyboard-response',
     stimulus: [],
@@ -414,19 +414,19 @@ var pavlovia_init = {
 	   		 break;
 	   	 case 'No Choice': BottomBarMessage = '<em> No Response</em>'
 	   	 }
-			
+
 	        trial.stimulus_width = window.innerWidth
 	   			trial.data = 0
 	   			if(AbsoluteFrames <=0){
 	   				trial.trial_duration = 0
 		  		  jsPsych.endCurrentTimeline();
-					
+
 	   			}
 	   		},
 	   		on_finish: function(trial){
 			buttonappear = false
 	        SpaceBarMessage = 'Press Spacebar to abort trial.'
-			
+
 	   			rw = 0
 	   			script_picker = Math.floor(Math.random() * 998) + 1
 	   			BallVisible = true
@@ -439,9 +439,9 @@ var pavlovia_init = {
 	            SNR_Picker = Math.floor(Math.random() * 4)
 				AbsoluteFrames += PayToPlay
 	   		}
-   	}	
-	
-	
+   	}
+
+
 	var training_trial_start	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -456,10 +456,10 @@ var pavlovia_init = {
 			AbsoluteFrames = 100
             instruction_picker = instruction_picker + 1
 
-            
+
 		}
 	}
-    
+
 	var training_trial_end	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -476,7 +476,7 @@ var pavlovia_init = {
 
 		}
 	}
-    
+
    	var BlockBuilder_A	= {
 type: 'image-keyboard-response',
 stimulus: '',
@@ -497,8 +497,8 @@ stimulus_width: 720,
 		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = -1
 	}
-}	
-	
+}
+
    	var BlockBuilder_B	= {
 type: 'image-keyboard-response',
 stimulus: '',
@@ -519,8 +519,8 @@ stimulus_width: 720,
 		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = 0
 	}
-}	
-	
+}
+
     	var BlockBuilder_1	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -542,7 +542,7 @@ stimulus_width: 720,
 			BlockNumber = 1
 		}
 	}
-	
+
 	var BlockBuilder_2	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -564,7 +564,7 @@ stimulus_width: 720,
 			BlockNumber = 2
 		}
 	}
-	
+
 	var BlockBuilder_3	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -586,7 +586,7 @@ stimulus_width: 720,
 			BlockNumber = 3
 		}
 	}
-	
+
 	var BlockBuilder_4	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -608,7 +608,7 @@ stimulus_width: 720,
 			BlockNumber = 4
 		}
 	}
-	
+
 	var BlockBuilder_5	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -629,7 +629,7 @@ stimulus_width: 720,
 			BlockNumber = 5
 		}
 	}
-	
+
 	var BlockBuilder_6	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -650,7 +650,7 @@ stimulus_width: 720,
 			BlockNumber = 6
 		}
 	}
-	
+
 	var BlockBuilder_7	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -671,7 +671,7 @@ stimulus_width: 720,
 			BlockNumber = 7
 		}
 	}
-	
+
 	var BlockBuilder_8	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -692,7 +692,7 @@ stimulus_width: 720,
 			BlockNumber = 8
 		}
 	}
-	
+
 	var BlockBuilder_9	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -712,7 +712,7 @@ stimulus_width: 720,
 			BlockNumber = 9
 		}
 	}
-	
+
 	var BlockBuilder_10	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -732,7 +732,7 @@ stimulus_width: 720,
 			BlockNumber = 10
 		}
 	}
-	
+
 	var BlockBuilder_11	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -752,7 +752,7 @@ stimulus_width: 720,
 			BlockNumber = 11
 		}
 	}
-	
+
 	var BlockBuilder_12	= {
  type: 'image-keyboard-response',
  stimulus: '',
@@ -772,7 +772,7 @@ stimulus_width: 720,
 			BlockNumber = 12
 		}
 	}
-	
+
 	var test_block = {
 		timeline: [online_frame],
 		repetitions: 30
@@ -781,12 +781,12 @@ stimulus_width: 720,
 		timeline: [Pre_frame],
 		repetitions: 30
 	}
-	
+
 	var test_frame_int_block = {
 		timeline: [test_frame_int_pre],
 		repetitions: 1
-	}	
-	
+	}
+
 	var full_block = {
 		timeline: [test_block, test_frame_int],
 		repetitions: 500
@@ -796,30 +796,30 @@ stimulus_width: 720,
 		timeline: [test_block_pre, test_frame_int_pre],
 		repetitions: 500
 	}
-		
+
 	var FirstInstructions_block = {
 		timeline: [FirstInstructions],
 		repetitions: 21
 	}
 
-	
-	
+
+
 
 		 var pavlovia_finish = {
 	      type: "pavlovia",
 	      command: "finish"
 	  };
-      
-      
+
+
   var consentdemo_block = {
       timeline: [consent, demographics, age, ProlificID],
       repetitions: 0}
-	
-        
+
+
             jsPsych.init({
   //timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, training_block_pre, training_block, Instructions,Instructions, BlockBuilder_1, test_frame_int_pre, full_block_pre, BlockBuilder_2, Instructions, full_block, BlockBuilder_3,Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_4, pavlovia_finish],
-  timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre, pavlovia_finish], 
-				 
+  //timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre, pavlovia_finish],
+	timeline: [consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre],
 
 		on_data_update: function(data){
 			jsPsych.data.get().addToLast({Direction: direction})
@@ -833,15 +833,10 @@ stimulus_width: 720,
 			jsPsych.data.get().addToLast({StepPayToPlay: PayToPlay})
             jsPsych.data.get().addToLast({Steps: AbsoluteFrames})
 
-			
+
 		},
  preload: [Mean1SD7Scale4Data, Mean05Data,Mean7halfData,Mean10Data,Mean15Data],
 		default_iti: 0,
 		    	  on_finish: function() {	          document.body.innerHTML = '<p> Please wait. Data is being uploaded. Please do not close the browser window or your data may be lost. You will be redirected back to Prolific in 3 seconds.</p>'
-	          setTimeout(function () { location.href = prolific_href }, 3000) } 
+	          setTimeout(function () { location.href = prolific_href }, 3000) }
 	})
-
-
-
-
-
