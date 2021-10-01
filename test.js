@@ -353,6 +353,105 @@ var pavlovia_init = {
   }
   }
 }
+//
+// var notraj_frame = {
+// type: 'no_trajectory-stim-response',
+// trial_duration: [],
+// stimulus: [],
+// stimulus_height: 600,
+// stimulus_width: 0,
+// choices: ['uparrow', 'downarrow'],
+// prompt: '',
+// on_start: function(trial){
+// SpaceBarMessage = 'Use the up or down arrows on the keyboard to make a choice'
+//  trial.stimulus_width = window.innerWidth
+// switch(true) {
+// case (AbsoluteFrames > 0):
+//  var lasttimelinedata = jsPsych.currentTrial();
+// 	trial.stimulus = rw
+// 		trial.trial_duration = trial_time
+//  switch(SNR){
+//  case 'Mean1SD7Scale4':
+// 	TransformedDataS1 = Mean1SD7Scale4Actual.data[script_picker]
+// 	 break;
+//  case 'Mean05':
+// 	TransformedDataS1 = Mean05Actual.data[script_picker]
+// 	 break;
+//  case 'mixed':
+// 	 chosenSNRArray = shuffledSNRArray[SNR_Picker]
+// 	switch(chosenSNRArray){
+// 	 case 'Mean05': TransformedDataS1 = Mean05Actual.data[script_picker]
+// 	 break;
+// 	 case 'Mean7half': TransformedDataS1 = Mean7halfActual.data[script_picker]
+// 	 break;
+// 	 case 'Mean10': TransformedDataS1 = Mean10Actual.data[script_picker]
+// 	 break;
+// 	 case 'Mean15': TransformedDataS1 = Mean15Actual.data[script_picker]
+// 	 break;
+//  }
+// };
+// 	switch(direction) {
+// 		 case 38: TransformedDataS2 = TransformedDataS1.map(x=> 300 - x)
+// 		 break;
+// 		case 40: TransformedDataS2 = TransformedDataS1.map(x=> 300 + x)
+// 		break;
+// 												}
+// 						trial.data = TransformedDataS2
+// 						break;
+//
+// 					case (AbsoluteFrames <= 0):
+// 						trial.data = 0
+// }
+// },
+// on_finish: function(trial){
+// var lasttimelinedata = jsPsych.currentTrial();
+// ChoiceDirection = 'No Choice'
+// CDcolor = 'No Choice'
+// switch(true) {
+//  case (AbsoluteFrames >0):
+// if(trial.key_press === 38) {
+// ChoiceDirection = 'Above'
+// BallVisible = false
+// trial_time = 0
+// CDcolor = 'red'
+// PointTotal += Penalty
+// jsPsych.endCurrentTimeline();
+//
+//
+// if(trial.key_press === 38 && direction === 38) {
+// 	PointTotal += PointBonus
+// 	CDcolor = 'blue'
+// 	jsPsych.endCurrentTimeline();
+//
+// }
+// }
+// if(trial.key_press === 40) {
+// ChoiceDirection = 'Below'
+// BallVisible = false
+// trial_time = 0
+// CDcolor = 'red'
+// PointTotal += Penalty
+// jsPsych.endCurrentTimeline();
+//
+//
+// if(trial.key_press === 40 && direction === 40) {
+// PointTotal += PointBonus
+// CDcolor = 'blue'
+// jsPsych.endCurrentTimeline();
+//
+// }
+//
+// }
+// AbsoluteFrames += -1
+// rw += 1
+// break;
+// case (AbsoluteFrames <= 0):
+// jsPsych.endCurrentTimeline();
+// }
+// }
+//
+// }
+
  var test_frame_int = {
  type: 'canvas-keyboard-response',
  stimulus: [],
@@ -430,7 +529,8 @@ var pavlovia_init = {
 	   			rw = 0
 	   			script_picker = Math.floor(Math.random() * 998) + 1
 	   			BallVisible = true
-	   			trial_time = 500
+					//trial_time = 500
+	   			trial_time = 100
 	   			var myArray = [38,40];
 	   			var shuffledArray = jsPsych.randomization.shuffle(myArray);
 	   			direction = shuffledArray[0]
@@ -441,6 +541,48 @@ var pavlovia_init = {
 	   		}
    	}
 
+		// var test_frame_int_notraj = {
+		// type: 'no-trajectory-stim-response',
+		// stimulus: [],
+		// stimulus_height: 600,
+		// stimulus_width: 0,
+		// choices: ['spacebar'],
+		// prompt: '',
+		// 	response_ends_trial: true,
+		// 	 on_start: function(trial){
+		// 	 SpaceBarMessage = 'Press Spacebar to continue'
+		// 	switch(CDcolor) {
+		// 				case 'blue': BottomBarMessage = `<em class = "correct">${ChoiceDirection}</em>`
+		// 				break;
+		// 					case 'red': BottomBarMessage = `<em class = "incorrect">${ChoiceDirection}</em>`
+		// 						break;
+		// 	case 'No Choice': BottomBarMessage = '<em> No Response</em>'
+		// 	}
+		//
+		// 		trial.stimulus_width = window.innerWidth
+		// 		 trial.data = 0
+		// 		 if(AbsoluteFrames <=0){
+		// 			 trial.trial_duration = 0
+		// 				 jsPsych.endCurrentTimeline();
+		// 		 }
+		// 	 },
+		// 	 on_finish: function(trial){
+		// 		SpaceBarMessage = 'Use the up or down arrows on the keyboard to make a choice'
+		//
+		// 		 rw = 0
+		// 		 script_picker = Math.floor(Math.random() * 998) + 1
+		// 		 BallVisible = true
+		// 		 trial_time = 500
+		// 		 var myArray = [38,40];
+		// 		 var shuffledArray = jsPsych.randomization.shuffle(myArray);
+		// 		 direction = shuffledArray[0]
+		// 		 timeleft = 10
+		// 					 SNR_Picker = Math.floor(Math.random() * 4)
+		// 		 AbsoluteFrames += PayToPlay
+		//
+		//
+		// 	 }
+		//  }
 
 	var training_trial_start	= {
  type: 'image-keyboard-response',
@@ -482,13 +624,14 @@ type: 'image-keyboard-response',
 stimulus: '',
 choices: ['spacebar'],
 stimulus_height: 450,
-stimulus_width: 720,
+stimulus_width: 600,
 	on_start: function(trial){
 		trial.stimulus = 'instructions/Slide' + instruction_picker + '.png'	},
 	on_finish: function(trial){
         instruction_picker = instruction_picker + 1
 		pre_trials = 'stop'
-		AbsoluteFrames = 100
+		//AbsoluteFrames = 100
+		AbsoluteFrames = 50
 		PointTotal = 0
 		Penalty = 0
 		PointBonus = 1
@@ -496,6 +639,8 @@ stimulus_width: 720,
 		SNR = 'Mean1SD7Scale4'
 		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = -1
+		trial_time = 500
+		condition_type = 'trajectory'
 	}
 }
 
@@ -504,13 +649,14 @@ type: 'image-keyboard-response',
 stimulus: '',
 choices: ['spacebar'],
 stimulus_height: 450,
-stimulus_width: 720,
+stimulus_width: 600,
 	on_start: function(trial){
 		trial.stimulus = 'instructions/Slide' + instruction_picker + '.png'	},
 	on_finish: function(trial){
         instruction_picker = instruction_picker + 1
 		pre_trials = 'start'
-		AbsoluteFrames = 100
+		//AbsoluteFrames = 100
+		AbsoluteFrames = 50
 		PointTotal = 0
 		Penalty = 0
 		PointBonus = 1
@@ -518,8 +664,84 @@ stimulus_width: 720,
 		SNR = 'Mean1SD7Scale4'
 		chosenSNRArray = 'Mean1SD7Scale4'
 		BlockNumber = 0
+		trial_time = 100
+		condition_type = 'trajectory'
 	}
 }
+
+		var BlockBuilder_C	= {
+type: 'image-keyboard-response',
+stimulus: '',
+choices: ['spacebar'],
+stimulus_height: 450,
+stimulus_width: 600,
+on_start: function(trial){
+trial.stimulus = 'instructions/Slide' + instruction_picker + '.png'	},
+on_finish: function(trial){
+		instruction_picker = instruction_picker + 1
+pre_trials = 'stop'
+//AbsoluteFrames = 100
+AbsoluteFrames = 50
+PointTotal = 0
+Penalty = 0
+PointBonus = 1
+PointBonusShow = 1
+SNR = 'Mean1SD7Scale4'
+chosenSNRArray = 'Mean1SD7Scale4'
+BlockNumber = -1
+trial_time = 500
+condition_type = 'no_trajectory'
+}
+}
+
+var BlockBuilder_D	= {
+type: 'image-keyboard-response',
+stimulus: '',
+choices: ['spacebar'],
+stimulus_height: 450,
+stimulus_width: 600,
+on_start: function(trial){
+trial.stimulus = 'instructions/Slide' + instruction_picker + '.png'	},
+on_finish: function(trial){
+		instruction_picker = instruction_picker + 1
+pre_trials = 'start'
+//AbsoluteFrames = 100
+AbsoluteFrames = 50
+PointTotal = 0
+Penalty = 0
+PointBonus = 1
+PointBonusShow = 1
+SNR = 'Mean1SD7Scale4'
+chosenSNRArray = 'Mean1SD7Scale4'
+BlockNumber = 0
+trial_time = 100
+condition_type = 'no_trajectory'
+}
+}
+
+// var BlockBuilder_notraj	= {
+// type: 'image-keyboard-response',
+// stimulus: '',
+// choices: ['spacebar'],
+// stimulus_height: 450,
+// stimulus_width: 720,
+// on_start: function(trial){
+// trial.stimulus = 'Block.png'
+// },
+// on_finish: function(trial){
+// pre_trials = 'stop'
+// //AbsoluteFrames = 500
+// AbsoluteFrames = 50
+// PointTotal = 0
+// Penalty = -1
+// PointBonus = 2
+// PointBonusShow = 1
+// SNR = 'Mean1SD7Scale4'
+// chosenSNRArray = 'Mean1SD7Scale4'
+// BlockNumber = -2
+// trial_time = 500
+// }
+// }
 
     	var BlockBuilder_1	= {
  type: 'image-keyboard-response',
@@ -532,7 +754,8 @@ stimulus_width: 720,
 		},
 		on_finish: function(trial){
 			pre_trials = 'stop'
-			AbsoluteFrames = 500
+			//AbsoluteFrames = 500
+			AbsoluteFrames = 50
 			PointTotal = 0
 			Penalty = -1
 			PointBonus = 2
@@ -540,6 +763,7 @@ stimulus_width: 720,
 			SNR = 'Mean1SD7Scale4'
 			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 1
+			trial_time = 500
 		}
 	}
 
@@ -554,7 +778,8 @@ stimulus_width: 720,
 		},
 		on_finish: function(trial){
 			pre_trials = 'start'
-			AbsoluteFrames = 500
+			//AbsoluteFrames = 500
+			AbsoluteFrames = 50
 			PointTotal = 0
 			Penalty = -1
 			PointBonus = 2
@@ -562,6 +787,7 @@ stimulus_width: 720,
 			SNR = 'Mean1SD7Scale4'
 			chosenSNRArray = 'Mean1SD7Scale4'
 			BlockNumber = 2
+			trial_time = 100
 		}
 	}
 
@@ -782,6 +1008,11 @@ stimulus_width: 720,
 		repetitions: 30
 	}
 
+	// var test_block_notraj = {
+	// 	timeline: [notraj_frame],
+	// 	reptitions: 30
+	// }
+
 	var test_frame_int_block = {
 		timeline: [test_frame_int_pre],
 		repetitions: 1
@@ -796,6 +1027,11 @@ stimulus_width: 720,
 		timeline: [test_block_pre, test_frame_int_pre],
 		repetitions: 500
 	}
+
+	// var full_block_notraj = {
+	// 	timeline: [test_block_notraj, test_frame_int_notraj],
+	// 	repitions: 500
+	// }
 
 	var FirstInstructions_block = {
 		timeline: [FirstInstructions],
@@ -819,7 +1055,8 @@ stimulus_width: 720,
             jsPsych.init({
   //timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, training_block_pre, training_block, Instructions,Instructions, BlockBuilder_1, test_frame_int_pre, full_block_pre, BlockBuilder_2, Instructions, full_block, BlockBuilder_3,Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_4, pavlovia_finish],
   //timeline: [pavlovia_init, consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre, pavlovia_finish],
-	timeline: [consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre],
+	//timeline: [consentdemo_block, FirstInstructions_block, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre, Instructions,Instructions,  BlockBuilder_1, full_block, BlockBuilder_2, Instructions, test_frame_int_pre, full_block_pre, BlockBuilder_3,Instructions, full_block, Instructions, BlockBuilder_4, test_frame_int_pre, full_block_pre],
+	timeline: [BlockBuilder_C, full_block, BlockBuilder_D, test_frame_int_pre, full_block_pre, BlockBuilder_A, full_block, BlockBuilder_B, test_frame_int_pre, full_block_pre],
 
 		on_data_update: function(data){
 			jsPsych.data.get().addToLast({Direction: direction})
